@@ -4,7 +4,7 @@
 set -e
 
 # build
-# npm run build
+npm run build
 
 # navigate into the build output directory
 cd dist
@@ -20,6 +20,6 @@ git commit -m 'Deployment'
 # git push -f git@github.com:lrncedev/lrncedev.github.io.git main
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-# git push -f git@github.com:lrncedev/commercial.git master:gh-pages
+git push -f git@github.com:lrncedev/vue-basics.git master:gh-pages
 
 cd -

@@ -20,7 +20,6 @@ const showModal = (itemObj) => {
 
 const handleChangeCategory = (category) => {
   selectedCategory.value = category;
-  console.log(selectedCategory.value);
 }
 
 const handleClosePopup = (bool) => {
@@ -55,10 +54,10 @@ onMounted(() => {
     console.log(err)
   });
 
-  // axios.get('https://fakestoreapi.com/products/categories')
-  // .then((response) => {
-  //   categories.value = response.data;
-  // })
+  axios.get('https://fakestoreapi.com/products/categories')
+  .then((response) => {
+    categories.value = response.data;
+  })
 })
 </script>
 

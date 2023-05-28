@@ -9,7 +9,7 @@ const cartItems = computed(() => store.state.cart);
 const cartCount = computed(() => {
   return cartItems.value.length;
 })
-console.log(cartItems.value.length);
+
 const cart = ref(false);
 
 const showCart = () => {
