@@ -22,7 +22,7 @@ const handleCloseCart = (bool) => {
 </script>
 <template>
   <div class="h-screen">
-    <div class="flex py-2 px-4 items-center justify-between bg-white border-b border-gray-50 shadow-sm">
+    <div class="flex py-2 px-4 items-center justify-between bg-white border-b border-gray-50 shadow-sm fixed top-0 w-full">
       <div class="font-bold text-gray-800 text-xl">Welcome to Commercial</div>
       <div class="flex gap-1 items-center">
         <button class="justify-self-end"><i class="material-icons text-red-700 cursor-pointer" @click="showCart">shopping_cart</i></button> 
