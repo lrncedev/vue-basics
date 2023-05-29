@@ -8,6 +8,7 @@ import CategoryList from "./CategoryList.vue";
 
 const products = ref([]);
 const categories = ref([]);
+const cartItems = computed(() => store.state.cart);
 
 const show = ref(false);
 const itemObject = ref(null);
@@ -27,12 +28,24 @@ const handleClosePopup = (bool) => {
 }
 
 const handleAddToCart = (product) => {
-  store.mutations.addToCart(product)
+  let foundItem = cartItems.value.find((item) => item.id == product.id)
+  if (foundItem) {
+    foundItem.quantity += 1;
+  } else {
+    const newProduct = { ...product, quantity: 1 }; // Create a new object with quantity property
+    store.mutations.addToCart(newProduct);
+  }
 }
 
 
 const addToCart = (product) => {
-  store.mutations.addToCart(product)
+  let foundItem = cartItems.value.find((item) => item.id == product.id)
+  if (foundItem) {
+    foundItem.quantity += 1;
+  } else {
+    const newProduct = { ...product, quantity: 1 }; // Create a new object with quantity property
+    store.mutations.addToCart(newProduct);
+  }
 }
 
 const filteredProducts = computed(() => {
@@ -57,6 +70,9 @@ onMounted(() => {
   axios.get('https://fakestoreapi.com/products/categories')
   .then((response) => {
     categories.value = response.data;
+  })
+  .catch((err) => {
+    console.log(err)
   })
 })
 </script>
